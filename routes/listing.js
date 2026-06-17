@@ -18,7 +18,7 @@ router.get(
 );
 
 // New
-router.get("/listings/new", (req, res) => {
+router.get("/new", (req, res) => {
   res.render("listings/new.ejs");
 });
 
@@ -50,6 +50,7 @@ router.post(
 
     const newListing = new Listing(req.body.listing);
     await newListing.save();
+    req.flash("success", "Listing created successfully!");
     res.redirect("/listings");
   })
 );
