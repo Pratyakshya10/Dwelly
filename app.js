@@ -15,6 +15,9 @@ const { reviewSchema } = require("./schema.js");
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
 
+const session = require("express-session");
+const flash = require("connect-flash");
+
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const port = 8080;
 
@@ -38,15 +41,35 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
+const sessionOptions = {
+  secret: "mysupersecretcode",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+    httpOnly: true,
+  },
+};
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
+
+app.use(session(sessionOptions));
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+})
+
 
 // Listings routes
 app.use("/listings", listings);
 
 // Reviews routes
-app.use("/", require("./routes/review.js"));
+app.use("/listings/:id/reviews", reviews);
 
 // 404
 app.all(/.*/, (req, res, next) => {
