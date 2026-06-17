@@ -1,0 +1,123 @@
+/* GLOBAL */
+body {
+    font-family: 'Circular', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    color: #222;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 80px;
+    background-color: white;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.fa-compass {
+    color: #ff385c;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222 !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #ff385c !important;
+}
+
+/* FOOTER */
+.f-info {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #f7f7f7;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-socials i {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* CARDS (AIRBNB STYLE) */
+.card {
+    border: none !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* CARD BODY */
+.card-body {
+    padding: 0.8rem 0.2rem;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+/* TITLE */
+.card-text strong {
+    font-weight: 600;
+}
+
+/* PRICE */
+.price {
+    font-weight: 600;
+}
+
+/* LINK WRAPPER */
+.listing-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* OPTIONAL: subtle hover overlay */
+.card-img-overlay {
+    opacity: 0;
+    transition: 0.2s ease;
+}
+
+.card:hover .card-img-overlay {
+    opacity: 0.1;
+    background-color: white;
+}
+
+.btn{
+    background-color: #ff385c;
+}
